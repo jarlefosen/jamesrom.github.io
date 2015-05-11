@@ -24,13 +24,13 @@ var Comms = (function() {
 
 			var regex = /"(wss:\/\/wss\.redditmedia\.com\/thebutton\?h=[^"]*)"/g;
 			websocketURL = regex.exec(redditRequester.responseText)[1];
-			
+
 			console.log("Connecting to: " + websocketURL);
 			sock = new WebSocket(websocketURL);
 			sock.onmessage = tick;
 		};
 		// Use CORS proxy by lezed1 to get the Reddit homepage!
-		redditRequester.open("get", "//cors-unblocker.herokuapp.com/get?url=https%3A%2F%2Fwww.reddit.com%2Fr%2Fthebutton", true);
+		redditRequester.open("get", "http://cors-unblocker.herokuapp.com/get?url=https%3A%2F%2Fwww.reddit.com%2Fr%2Fthebutton", true);
 		redditRequester.send();
 	}
 
